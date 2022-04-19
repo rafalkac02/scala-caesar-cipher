@@ -15,6 +15,7 @@ class CaesarCipherSpec extends AnyFlatSpec with should.Matchers {
     shift('z', 1) shouldBe 'a'
     shift('y', 1) shouldBe 'z'
     shift('q', 22) shouldBe 'm'
+    shift('g', 1) shouldBe 'h'
   }
 
   "A caesar()" should "shift all letters in a word by n" in {
@@ -24,10 +25,11 @@ class CaesarCipherSpec extends AnyFlatSpec with should.Matchers {
     caesar("fusion", 6) shouldBe "layout"
     caesar("dailyprogrammer", 6) shouldBe "jgorevxumxgsskx"
     caesar("jgorevxumxgsskx", 20) shouldBe "dailyprogrammer"
-
-
-
   }
 
-
+  "a ceasar()" should "be case-insensitive" in {
+    caesar("B", 2) shouldBe "D"
+    caesar("IRK", 13) shouldBe "VEX"
+    caesar("fuSiON", 6) shouldBe "laYoUT"
+  }
 }
